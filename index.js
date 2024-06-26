@@ -22,6 +22,7 @@ async function fetchDataFromAPI(fileName) {
             return response.data.data;
         } else {
             throw new Error("API錯誤訊息：" + response.data.msg);
+            // 先前Lambda API成功 但上面判斷response.data.code抓錯，才會出現API錯誤訊息：Lambda成功下行 這種怪回覆
         }
     } catch (error) {
         throw new Error("外部API獲取資料失敗：" + error.message);
